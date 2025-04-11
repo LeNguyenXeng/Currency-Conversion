@@ -1,0 +1,20 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.background {
+  background-color: #163300;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 50vw;
+  height: 245px !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px !important;
+}
