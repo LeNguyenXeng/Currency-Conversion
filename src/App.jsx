@@ -75,6 +75,7 @@ function App() {
               <Form.Control
                 value={usdValue}
                 type="number"
+                min={0}
                 aria-label="Dollar amount (with dot and two decimal places)"
                 onChange={handleChangeCurrency}
               />
