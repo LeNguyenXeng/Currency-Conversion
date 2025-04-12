@@ -18,3 +18,10 @@
   justify-content: center;
   border-radius: 20px !important;
 }
+.image-usd {
+  border-radius: 71px;
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+}
+

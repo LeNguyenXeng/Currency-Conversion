@@ -80,10 +80,26 @@ function App() {
                 onChange={handleChangeCurrency}
               />
               <InputGroup.Text>
+                {swap === "USD" ? (
+                  <img
+                    className="image-usd"
+                    src="https://www.shutterstock.com/image-vector/usa-flag-icons-vector-set-600nw-2491312125.jpg"
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className="image-usd"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1024px-Flag_of_Vietnam.svg.png"
+                    alt=""
+                  />
+                )}
                 {swap === "USD" ? "USD" : "VND"}
               </InputGroup.Text>
             </InputGroup>
-            <div style={{ padding: "0 30px" }} onClick={handleSwap}>
+            <div
+              style={{ padding: "0 30px", cursor: "pointer" }}
+              onClick={handleSwap}
+            >
               <svg
                 width={20}
                 xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +115,19 @@ function App() {
                 aria-label="Dollar amount (with dot and two decimal places)"
               />
               <InputGroup.Text>
-                {" "}
+                {swap === "USD" ? (
+                  <img
+                    className="image-usd"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1024px-Flag_of_Vietnam.svg.png"
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className="image-usd"
+                    src="https://www.shutterstock.com/image-vector/usa-flag-icons-vector-set-600nw-2491312125.jpg"
+                    alt=""
+                  />
+                )}
                 {swap === "USD" ? "VND" : "USD"}
               </InputGroup.Text>
             </InputGroup>
