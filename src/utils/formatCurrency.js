@@ -6,4 +6,9 @@ const formatCurrency = (value) => {
   return number.toLocaleString("vi-VN");
 };
 
-export default formatCurrency;
+function parseFormattedNumber(str) {
+  console.log("🚀 ~ parseFormattedNumber ~ str:", str);
+  return parseFloat(str.replace(/,/g, ""));
+}
+
+export { formatCurrency, parseFormattedNumber };
