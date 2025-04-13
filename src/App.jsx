@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { formatCurrency, parseFormattedNumber } from "./utils/formatCurrency";
 import { XMLParser } from "fast-xml-parser";
 import dayjs from "dayjs";
+import Loading from "./components/Loading";
 
 function App() {
   const [usdValue, setUsdValue] = useState(0);
@@ -11,11 +12,15 @@ function App() {
   const [swap, setSwap] = useState("USD");
   const [usdRate, setUsdRate] = useState(null);
   const [date, setDate] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [total, setTotal] = useState(0);
   const fetchExchangeRate = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(
         "https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx?b=10"
       );
+
       const textData = await response.text();
 
       const parser = new XMLParser({ ignoreAttributes: false });
@@ -34,6 +39,8 @@ function App() {
       }
     } catch (error) {
       console.error("Error fetching exchange rate:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,6 +68,7 @@ function App() {
   return (
     <>
       <div className="background">
+        {isLoading ? <Loading /> : ""}
         <div className="card d-flex">
           <div className="mb-4">
             <h3>Tỷ giá ngày {dayjs(date).format("DD/MM/YYYY")}</h3>
